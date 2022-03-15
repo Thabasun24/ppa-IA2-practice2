@@ -1,1 +1,177 @@
+gcc -g p4original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8ae: file p4original.c, line 37.
+(gdb) r
+Starting program: /home/runner/ppa-IA2-practice2-1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p4original.c:37
+37  {
+(gdb) n
+39    n=input_array_size();
+(gdb) s
+input_array_size () at p4original.c:3
+3   {
+(gdb) n
+5     printf("How many numbers do you want to enter:- ");
+(gdb) n
+6     scanf("%d",&x);
+(gdb) n
+How many numbers do you want to enter:- 5
+7     return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p4original.c:40
+40    int a[n];
+(gdb) s
+41    input_array(n,a);
+(gdb) s
+input_array (n=5, a=0x7ffc240a8d70) at p4original.c:12
+12    for(i=0;i<n;i++)
+(gdb) n
+14      printf("Enter %dth number:- ",i+1);
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+Enter 1th number:- 3
+12    for(i=0;i<n;i++)
+(gdb) n
+14      printf("Enter %dth number:- ",i+1);
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+Enter 2th number:- 4
+12    for(i=0;i<n;i++)
+(gdb) n
+14      printf("Enter %dth number:- ",i+1);
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+Enter 3th number:- 6
+12    for(i=0;i<n;i++)
+(gdb) n
+14      printf("Enter %dth number:- ",i+1);
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+Enter 4th number:- 2
+12    for(i=0;i<n;i++)
+(gdb) n
+14      printf("Enter %dth number:- ",i+1);
+(gdb) n
+15      scanf("%d",&a[i]);
+(gdb) n
+Enter 5th number:- 1
+12    for(i=0;i<n;i++)
+(gdb) n
+17  }
+(gdb) n
+main () at p4original.c:42
+42    result=sum_composite(n,a);
+(gdb) s
+sum_composite (n=5, a=0x7ffc240a8d70) at p4original.c:20
+20    int k,i,sum=0,count=0;
+(gdb) n
+21    for(i=0;i<n;i++)
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+25        count=count+1;
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+27      if(count>2)
+(gdb) n
+21    for(i=0;i<n;i++)
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+25        count=count+1;
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+25        count=count+1;
+(gdb) s
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) s
+27      if(count>2)
+(gdb) n
+28      sum=sum+a[i];
+(gdb) n
+21    for(i=0;i<n;i++)
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+25        count=count+1;
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) s
+25        count=count+1;
+(gdb) s
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) s
+25        count=count+1;
+(gdb) s
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+27      if(count>2)
+(gdb) n
+28      sum=sum+a[i];
+(gdb) n
+21    for(i=0;i<n;i++)
+(gdb) n
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+25        count=count+1;
+(gdb) s
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) n
+27      if(count>2)
+(gdb) n
+28      sum=sum+a[i];
+(gdb) s
+21    for(i=0;i<n;i++)
+(gdb) s
+23      for(k=1;a[i]%k==0 && k<a[i];k++)
+(gdb) s
+27      if(count>2)
+(gdb) s
+28      sum=sum+a[i];
+(gdb) s
+21    for(i=0;i<n;i++)
+(gdb) s
+30    return sum;
+(gdb) s
+31  }
+(gdb) s
+main () at p4original.c:43
+43    output(result);
+(gdb) s
+output (sum=13) at p4original.c:34
+34    printf("Sum of all composite numbers is %d",sum);
+(gdb) n
+35  }
+(gdb) n
+main () at p4original.c:44
+44    return 0;
+(gdb) c
+Continuing.
+Sum of all composite numbers is 13[Inferior 1 (process 418) exited normally]
+(gdb) 
